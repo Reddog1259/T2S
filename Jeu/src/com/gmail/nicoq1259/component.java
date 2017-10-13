@@ -21,7 +21,7 @@ public class component {
 	public static int height = 720;
 	public static int width = height * 16 / 9;
 	
-	public static String Title = "Time To Survive";
+	public static String Title = "Time To Survive v0.1";
 	
 	public boolean run = false;
 	
