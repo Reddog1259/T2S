@@ -87,8 +87,8 @@ public class World {
 	int Ticks = 0;
 	public void update(){
 		for(int i = 0; i < mapSize / Chunk.sizeX; i++){
-			if(Ticks % 30 == 0)
-				chunks[i].updateChunk();
+//			if(Ticks % 30 == 0)
+//				chunks[i].updateChunk();
 			if((i) * Chunk.sizeX * Cube.size < Math.abs(-Camera.getPosition().x + component.width) && (i + 1) * Chunk.sizeX * Cube.size > -Camera.getPosition().x){
 				chunks[i].visible = true;
 				chunks[i].update();
@@ -197,7 +197,22 @@ public class World {
 
 		this.chunks[chunkId].cube[x - chunkId * Chunk.sizeX][y].type = type;
 	}
+	
+	public void setCube(Cube cube){
+		if(cube.x >= mapSize || cube.x < 0 || cube.y < 0 || cube.y >= Chunk.sizeY)
+			return;
+		int chunkId = cube.x / Chunk.sizeX;
 
+		this.chunks[chunkId].cube[cube.x - chunkId * Chunk.sizeX][cube.y] = cube;
+	}
+	
+	public void setCube(int x, int y, Cube cube){
+		if(x >= mapSize || x < 0 || y < 0 || y >= Chunk.sizeY)
+			return;
+		int chunkId = x / Chunk.sizeX;
+
+		this.chunks[chunkId].cube[x - chunkId * Chunk.sizeX][y] = new Cube(cube);
+	}
 	public Cube getCube(int x, int y){
 		if(x >= mapSize || x < 0 || y < 0 || y >= Chunk.sizeY)
 			return null;

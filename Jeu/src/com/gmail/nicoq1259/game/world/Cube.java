@@ -2,6 +2,7 @@ package com.gmail.nicoq1259.game.world;
 
 import static org.lwjgl.opengl.GL11.*;
 
+import java.io.Serializable;
 import java.util.Random;
 
 
@@ -10,8 +11,12 @@ import com.gmail.nicoq1259.game.Game;
 import com.gmail.nicoq1259.game.world.structure.Tree;
 import com.gmail.nicoq1259.inventory.Loot;
 
-public class Cube {
+public class Cube implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public static int size = 32; 
 	public int x, y;
 	public CubeType type = CubeType.Air;
@@ -25,6 +30,15 @@ public class Cube {
 		this.y = y;
 		this.type = type;
 	}
+	
+	public Cube(Cube cube) {
+		this.x = cube.x;
+		this.y = cube.y;
+		this.type = cube.type;
+		this.deep = cube.deep;
+		this.data = cube.data;
+	}
+	
 	public boolean isRenderable = false;
 	public void render(){
 		if(type.render && (!type.liquide || type.id == 10)){

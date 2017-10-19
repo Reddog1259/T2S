@@ -1,8 +1,10 @@
 package com.gmail.nicoq1259.game.world;
 
+import java.io.Serializable;
+
 import com.gmail.nicoq1259.render.Texture;
 
-public enum CubeType {
+public enum CubeType implements Serializable{
 //  nom(id, render)
 	Air				(  0,  true, new float[]{0f, 0f, 0.6f, 1f},              false,   0.7f,    0f, false, false, new Texture("air.png")), 
 	Dirt			(  1,  true, new float[]{0.53333f, 0.2588f, 0.1137f, 1f},  true,  0.5f,  0.8f,  true,  true, new Texture("dirt.png")),

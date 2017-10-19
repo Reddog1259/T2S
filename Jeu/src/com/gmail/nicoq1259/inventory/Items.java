@@ -1,9 +1,15 @@
 package com.gmail.nicoq1259.inventory;
 
 
+import java.io.Serializable;
+
 import com.gmail.nicoq1259.entity.Entity;
 
-public class Items extends Entity{
+public class Items extends Entity implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public int id = 0;
 	public int amount = 0;
 	public ItemType type = null;

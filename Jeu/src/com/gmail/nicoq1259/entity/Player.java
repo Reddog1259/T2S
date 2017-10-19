@@ -7,7 +7,14 @@ import com.gmail.nicoq1259.render.Texture;
 
 import static org.lwjgl.opengl.GL11.*;
 
-public class Player extends Entity{
+import java.io.Serializable;
+
+public class Player extends Entity implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	public Inventory inventory = new Inventory();
 	

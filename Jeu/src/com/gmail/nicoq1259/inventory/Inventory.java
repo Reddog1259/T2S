@@ -1,7 +1,12 @@
 package com.gmail.nicoq1259.inventory;
 
+import java.io.Serializable;
 
-public class Inventory{
+public class Inventory implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public int max_item = 10;
 	private Items items[] = new Items[max_item];
 	public int selector = 0;

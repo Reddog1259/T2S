@@ -84,6 +84,7 @@ public class Chunk {
 			}
 		}
 		if(gen){
+			Game.SAVE.saveChunk(this);
 			genLists();
 			gen = false;
 		}

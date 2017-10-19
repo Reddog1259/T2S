@@ -17,6 +17,7 @@ public class PauseMenu extends Scene{
 	public void update(){
 		if(Mouse.isGrabbed()){
 			Mouse.setGrabbed(false);
+			Game.SAVE.saveAll();
 		}
 		Game.openCraft = false;
 	}

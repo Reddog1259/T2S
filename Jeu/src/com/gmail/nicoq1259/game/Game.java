@@ -5,7 +5,6 @@ import org.lwjgl.util.vector.Vector2f;
 
 import com.gmail.nicoq1259.component;
 import com.gmail.nicoq1259.entity.Entity;
-
 import com.gmail.nicoq1259.entity.Player;
 import com.gmail.nicoq1259.game.world.Chunk;
 import com.gmail.nicoq1259.game.world.Cube;
@@ -21,6 +20,7 @@ public class Game extends Scene implements Runnable {
 	public static boolean DEBUG = false;
 	public static int playerId = 0;
 	public static boolean openCraft = false;
+	public static GameFile SAVE = new GameFile("test");	
 	
 	public Game(){
 		(new Thread(this)).start();
@@ -87,6 +87,10 @@ public class Game extends Scene implements Runnable {
 				playerId = (int) Entity.add(new Player(100, world.getTopperFromTop(100 / Cube.size) * Cube.size));
 				Loot.initCubeLoot();
 				Craft.init();
+				SAVE.loadAll();
+				for(int i = 0; i < World.mapSize / Chunk.sizeX; i++){	
+					world.chunks[i].updateChunk();
+				}
 				World.state = 10;
 			}
 		}
